@@ -367,7 +367,7 @@ export const FLAGSHIP_PROJECTS: RepoItem[] = [
     created_at: '2025-11-01T00:00:00Z',
     fork: false,
     size: 1200,
-    custom_preview: '/assets/Screenshot 2025-06-25 110316.png',
+    custom_preview: '/assets/images/project6.png',
   },
   {
     name: 'pendataan-siswa-buku-induk',
@@ -385,6 +385,25 @@ export const FLAGSHIP_PROJECTS: RepoItem[] = [
     created_at: '2026-04-01T00:00:00Z',
     fork: false,
     size: 850,
+    custom_preview: '/assets/images/project2.png',
+  },
+  {
+    name: 'hafiz-quran-app',
+    title: "Hafiz Qur'an — Tahfidz & Mushaf Per Halaman",
+    full_name: 'yahyaalfaruq/api-application-quran',
+    html_url: 'https://github.com/yahyaalfaruq/api-application-quran',
+    homepage: '',
+    language: 'TypeScript',
+    topics: ["Tahfidz Al-Qur'an", 'TypeScript', 'Mushaf Mode', 'Progress Tracker'],
+    description:
+      "Interactive Al-Qur'an memorization (Tahfidz) system per page with effective repetition mode, daily targets, and progress bookmarking.",
+    stars: 4,
+    forks: 1,
+    pushed_at: '2025-06-25T11:03:00Z',
+    created_at: '2025-06-01T00:00:00Z',
+    fork: false,
+    size: 640,
     custom_preview: '/assets/Screenshot 2025-06-25 110316.png',
   },
 ];
+

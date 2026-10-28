@@ -12,7 +12,7 @@ import {
 } from './data/portfolioData';
 
 const GH_USER = 'yahyaalfaruq';
-const GH_CACHE_KEY = `gh_repos_next_v1_${GH_USER}`;
+const GH_CACHE_KEY = `gh_repos_next_v2_${GH_USER}`;
 const GH_CACHE_TTL = 1000 * 60 * 30;
 const INITIAL_VISIBLE = 6;
 
@@ -1964,3 +1964,4 @@ export default function PortfolioPage() {
     </>
   );
 }
+
