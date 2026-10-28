@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ import {
 } from './data/portfolioData';
 
 const GH_USER = 'yahyaalfaruq';
-const GH_CACHE_KEY = `gh_repos_next_v2_${GH_USER}`;
+const GH_CACHE_KEY = `gh_repos_next_v3_${GH_USER}`;
 const GH_CACHE_TTL = 1000 * 60 * 30;
 const INITIAL_VISIBLE = 6;
 
@@ -113,7 +113,6 @@ export default function PortfolioPage() {
   // Loader animation
   useEffect(() => {
     document.body.classList.add('is-loading');
-    const circumference = 2 * Math.PI * 52;
     let progress = 0;
     let target = 80;
     let finished = false;
@@ -152,7 +151,6 @@ export default function PortfolioPage() {
       finish();
     }, 2500);
 
-    void circumference;
     return () => {
       window.clearInterval(timer);
       window.clearTimeout(safety);
@@ -162,7 +160,8 @@ export default function PortfolioPage() {
 
   // Typewriter loop
   useEffect(() => {
-    const phrases: string[] = (T[lang]?.tw_phrases as string[]) || T.en.tw_phrases;
+    const phrases: string[] =
+      (T[lang]?.tw_phrases as string[]) || T.en.tw_phrases;
     let pi = 0;
     let ci = 0;
     let deleting = false;
@@ -417,7 +416,7 @@ export default function PortfolioPage() {
           .from('.hero-stats', { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
           .from(
             '.hero-image',
-            { opacity: 0, scale: 0.85, duration: 0.9, ease: 'back.out(1.4)' },
+            { opacity: 0, scale: 0.85, duration: 0.9, ease: 'back.out(1.4)', clearProps: 'transform' },
             '-=0.6'
           )
           .from(
@@ -714,9 +713,9 @@ export default function PortfolioPage() {
   };
 
   const langMeta: Record<LangCode, { flag: string; label: string }> = {
-    en: { flag: 'ðŸ‡¬ðŸ‡§', label: 'EN' },
-    id: { flag: 'ðŸ‡®ðŸ‡©', label: 'ID' },
-    ar: { flag: 'ðŸ‡¸ðŸ‡¦', label: 'AR' },
+    en: { flag: '\uD83C\uDDEC\uD83C\uDDE7', label: 'EN' },
+    id: { flag: '\uD83C\uDEE2\uD83C\uDDE9', label: 'ID' },
+    ar: { flag: '\uD83C\uDDF8\uD83C\uDDE6', label: 'AR' },
   };
 
   const circumference = 2 * Math.PI * 52;
@@ -871,16 +870,18 @@ export default function PortfolioPage() {
                     setLangMenuOpen((v) => !v);
                   }}
                 >
-                  <span>{langMeta[lang].flag}</span>
+                  <span>
+                    {lang === 'en' ? '🇬🇧' : lang === 'id' ? '🇮🇩' : '🇸🇦'}
+                  </span>
                   <span id="langLabel">{langMeta[lang].label}</span>
                   <i className="fas fa-chevron-down"></i>
                 </button>
                 <div className={`lang-menu ${langMenuOpen ? 'open' : ''}`}>
                   {(
                     [
-                      { code: 'en', text: 'ðŸ‡¬ðŸ‡§ English' },
-                      { code: 'id', text: 'ðŸ‡®ðŸ‡© Indonesia' },
-                      { code: 'ar', text: 'ðŸ‡¸ðŸ‡¦ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©' },
+                      { code: 'en', text: '🇬🇧 English' },
+                      { code: 'id', text: '🇮🇩 Indonesia' },
+                      { code: 'ar', text: '🇸🇦 العربية' },
                     ] as { code: LangCode; text: string }[]
                   ).map((opt) => (
                     <button
@@ -1768,7 +1769,7 @@ export default function PortfolioPage() {
                     className="testimonial-stars"
                     aria-label="5 out of 5 stars"
                   >
-                    â˜…â˜…â˜…â˜…â˜…
+                    {'\u2605\u2605\u2605\u2605\u2605'}
                   </div>
                   <span className="testimonial-badge">{rev.badge}</span>
                 </div>
@@ -1987,4 +1988,3 @@ export default function PortfolioPage() {
     </>
   );
 }
-

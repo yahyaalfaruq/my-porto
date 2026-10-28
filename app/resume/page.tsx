@@ -5,18 +5,17 @@ import Link from 'next/link';
 
 export default function ResumePage() {
   return (
-    <div
-      style={{
-        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-        background: '#f1f5f9',
-        color: '#0f172a',
-        lineHeight: 1.5,
-        fontSize: '13.2px',
-        padding: '32px 16px',
-        minHeight: '100vh',
-      }}
-    >
+    <div className="cv-page-root">
       <style>{`
+        .cv-page-root {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+          background: #f1f5f9;
+          color: #0f172a;
+          line-height: 1.5;
+          font-size: 13.2px;
+          padding: 32px 16px;
+          min-height: 100vh;
+        }
         .cv-toolbar {
           max-width: 210mm;
           margin: 0 auto 18px;
@@ -61,9 +60,11 @@ export default function ResumePage() {
           justify-content: space-between;
           align-items: flex-start;
           gap: 20px;
-          padding-bottom: 14px;
+          padding: 0 0 14px 0 !important;
           border-bottom: 2px solid #0f172a;
           margin-bottom: 14px;
+          position: static !important;
+          background: transparent !important;
         }
         .cv-brand { display: flex; align-items: center; gap: 14px; }
         .cv-brand-logo { width: 44px; height: 44px; flex-shrink: 0; }
@@ -73,6 +74,7 @@ export default function ResumePage() {
           letter-spacing: -0.03em;
           color: #0f172a;
           line-height: 1.15;
+          margin: 0;
         }
         .cv-role {
           font-size: 13.5px;
@@ -87,7 +89,11 @@ export default function ResumePage() {
           line-height: 1.65;
         }
         .cv-contact a { color: #334155; text-decoration: none; }
-        .cv-section { margin-bottom: 14px; }
+        .cv-section {
+          padding: 0 !important;
+          margin: 0 0 14px 0 !important;
+          position: static !important;
+        }
         .cv-section-title {
           font-size: 11.5px;
           font-weight: 800;
@@ -98,7 +104,7 @@ export default function ResumePage() {
           padding-bottom: 4px;
           margin-bottom: 8px;
         }
-        .cv-summary { color: #334155; text-align: justify; }
+        .cv-summary { color: #334155; text-align: justify; margin: 0; }
         .cv-skills-table { width: 100%; border-collapse: collapse; }
         .cv-skills-table td { padding: 3px 0; vertical-align: top; }
         .cv-skills-table td.label { width: 155px; font-weight: 700; color: #0f172a; }
@@ -123,10 +129,11 @@ export default function ResumePage() {
           padding: 8px 11px;
           background: #f8fafc;
         }
-        .cv-cert-box h4 { font-size: 12.5px; font-weight: 700; color: #0f172a; }
+        .cv-cert-box h4 { font-size: 12.5px; font-weight: 700; color: #0f172a; margin: 0 0 2px 0; }
         .cv-cert-box .issuer { font-size: 11.5px; font-weight: 600; color: #6d28d9; margin-bottom: 2px; }
-        .cv-cert-box p { font-size: 11.5px; color: #334155; }
+        .cv-cert-box p { font-size: 11.5px; color: #334155; margin: 0; }
         @media print {
+          .cv-page-root { background: #fff; padding: 0; }
           .cv-toolbar { display: none !important; }
           .cv-sheet { box-shadow: none; border-radius: 0; padding: 10mm 14mm; max-width: 100%; }
         }
@@ -199,7 +206,7 @@ export default function ResumePage() {
             <div>
               <h1>YAHYA AL FARUQ</h1>
               <div className="cv-role">
-                Full-Stack Software Engineer · Laravel, React, TypeScript &amp;
+                Full-Stack Software Engineer &middot; Laravel, React, TypeScript &amp;
                 Node.js
               </div>
             </div>
@@ -229,14 +236,14 @@ export default function ResumePage() {
           </div>
         </div>
 
-        <section className="cv-section">
+        <div className="cv-section">
           <h2 className="cv-section-title">Professional Summary</h2>
           <p className="cv-summary">
             Full-Stack Software Engineer educated in Information &amp;
             Technology (IT) and Tahfidz Al-Qur&apos;an at{' '}
             <strong>Pondok Pesantren Qur&apos;an &amp; IT Al Mahir (PPQITA)</strong>
             , Karanganyar (Solo Raya). Experienced in architecting and deploying
-            50+ web repositories and institutional platforms — including{' '}
+            50+ web repositories and institutional platforms &mdash; including{' '}
             <strong>SIAKAD Almahira</strong> (Assessment, Attendance, Tahfidz
             Tracking &amp; Digital Report Cards), Student Master Registry
             systems, Point-of-Sale (POS) cashier apps, offline-first PWAs, and
@@ -246,12 +253,12 @@ export default function ResumePage() {
             </strong>
             . Certified in Responsive Web Design (PPQITA), TEKNOVISTAFEST Web
             Design Competition (Universitas Airlangga), Arabic Language
-            Preparation (<em>Mumtaz / 87.50%</em> — Darul Lughah Al Arabiyah),
+            Preparation (<em>Mumtaz / 87.50%</em> &mdash; Darul Lughah Al Arabiyah),
             and Intensive English (Pare-Dise Kampung Inggris).
           </p>
-        </section>
+        </div>
 
-        <section className="cv-section">
+        <div className="cv-section">
           <h2 className="cv-section-title">Technical Skills</h2>
           <table className="cv-skills-table">
             <tbody>
@@ -287,15 +294,15 @@ export default function ResumePage() {
               <tr>
                 <td className="label">Languages</td>
                 <td className="val">
-                  Indonesian (Native), Arabic (Certified <em>Mumtaz</em> —
-                  87.50%), English (Certified — Kampung Inggris Pare)
+                  Indonesian (Native), Arabic (Certified <em>Mumtaz</em> &mdash;
+                  87.50%), English (Certified &mdash; Kampung Inggris Pare)
                 </td>
               </tr>
             </tbody>
           </table>
-        </section>
+        </div>
 
-        <section className="cv-section">
+        <div className="cv-section">
           <h2 className="cv-section-title">
             Featured Projects &amp; Engineering Experience
           </h2>
@@ -304,15 +311,15 @@ export default function ResumePage() {
             <div className="cv-item-head">
               <div>
                 <span className="cv-item-title">
-                  SIAKAD Almahira — Modul Penilaian, Presensi &amp; Raport
+                  SIAKAD Almahira &mdash; Modul Penilaian, Presensi &amp; Raport
                   Digital
                 </span>{' '}
-                ·{' '}
+                &middot;{' '}
                 <span className="cv-item-sub">
                   Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase
                 </span>
               </div>
-              <span className="cv-item-meta">PPQ IT Al Mahir · 2025 – 2026</span>
+              <span className="cv-item-meta">PPQ IT Al Mahir &middot; 2025 &ndash; 2026</span>
             </div>
             <ul>
               <li>
@@ -344,12 +351,12 @@ export default function ResumePage() {
                 <span className="cv-item-title">
                   Sistem Buku Induk &amp; Pendataan Siswa
                 </span>{' '}
-                ·{' '}
+                &middot;{' '}
                 <span className="cv-item-sub">
                   React 19, Vite 8, Supabase, Framer Motion, SheetJS (XLSX)
                 </span>
               </div>
-              <span className="cv-item-meta">PPQ IT Al Mahir · 2026</span>
+              <span className="cv-item-meta">PPQ IT Al Mahir &middot; 2026</span>
             </div>
             <ul>
               <li>
@@ -371,12 +378,12 @@ export default function ResumePage() {
                 <span className="cv-item-title">
                   Dompet Santri, Web Kasir (POS) &amp; PSB/PPDB Santri
                 </span>{' '}
-                ·{' '}
+                &middot;{' '}
                 <span className="cv-item-sub">
                   TypeScript, React.js, Next.js, Tailwind CSS, Vercel
                 </span>
               </div>
-              <span className="cv-item-meta">2024 – 2025</span>
+              <span className="cv-item-meta">2024 &ndash; 2025</span>
             </div>
             <ul>
               <li>
@@ -406,12 +413,12 @@ export default function ResumePage() {
                   Tugazku (Offline-First PWA), SAS Todo-List Laravel &amp;
                   Qur&apos;an REST API
                 </span>{' '}
-                ·{' '}
+                &middot;{' '}
                 <span className="cv-item-sub">
                   JavaScript, IndexedDB, PWA, Laravel Blade, Node.js, Express.js
                 </span>
               </div>
-              <span className="cv-item-meta">2024 – 2025</span>
+              <span className="cv-item-meta">2024 &ndash; 2025</span>
             </div>
             <ul>
               <li>
@@ -434,9 +441,9 @@ export default function ResumePage() {
               </li>
             </ul>
           </div>
-        </section>
+        </div>
 
-        <section className="cv-section">
+        <div className="cv-section">
           <h2 className="cv-section-title">Education</h2>
           <div className="cv-item">
             <div className="cv-item-head">
@@ -444,33 +451,33 @@ export default function ResumePage() {
                 <span className="cv-item-title">
                   Pondok Pesantren Qur&apos;an &amp; IT Al Mahir (PPQITA)
                 </span>{' '}
-                ·{' '}
+                &middot;{' '}
                 <span className="cv-item-sub">
                   Information &amp; Technology (IT) and Tahfidz Al-Qur&apos;an
                 </span>
               </div>
               <span className="cv-item-meta">
-                Karanganyar, Jawa Tengah · 2023 – 2026
+                Karanganyar, Jawa Tengah &middot; 2023 &ndash; 2026
               </span>
             </div>
             <ul>
               <li>
-                Completed secondary education (Program Kesetaraan Paket C — PKBM
+                Completed secondary education (Program Kesetaraan Paket C &mdash; PKBM
                 Inisiator Salam Kariim, NISN: 0086397610) with specialization in
                 Software Engineering, Full-Stack Web Development, Arabic
                 Language, and Tahfidz Al-Qur&apos;an.
               </li>
             </ul>
           </div>
-        </section>
+        </div>
 
-        <section className="cv-section" style={{ marginBottom: 0 }}>
+        <div className="cv-section" style={{ marginBottom: 0 }}>
           <h2 className="cv-section-title">Official Certifications</h2>
           <div className="cv-cert-grid">
             <div className="cv-cert-box">
               <h4>Responsive Web Design Certification</h4>
               <div className="issuer">
-                Pondok Pesantren Qur&apos;an &amp; IT Al Mahir (PPQITA) · T.A.
+                Pondok Pesantren Qur&apos;an &amp; IT Al Mahir (PPQITA) &middot; T.A.
                 2023/2024
               </div>
               <p>
@@ -480,9 +487,9 @@ export default function ResumePage() {
               </p>
             </div>
             <div className="cv-cert-box">
-              <h4>Web Design Competition — TEKNOVISTAFEST</h4>
+              <h4>Web Design Competition &mdash; TEKNOVISTAFEST</h4>
               <div className="issuer">
-                Fakultas Vokasi Universitas Airlangga (UNAIR) · 19 Oct 2024
+                Fakultas Vokasi Universitas Airlangga (UNAIR) &middot; 19 Oct 2024
               </div>
               <p>
                 Awarded official certificate as Participant in the
@@ -493,18 +500,18 @@ export default function ResumePage() {
             <div className="cv-cert-box">
               <h4>Arabic Language Preparation (شهادة التفاصيل)</h4>
               <div className="issuer">
-                Darul Lughah Al Arabiyah · 29 Jan 2024 · Reg No: 243193631
+                Darul Lughah Al Arabiyah &middot; 29 Jan 2024 &middot; Reg No: 243193631
               </div>
               <p>
                 Completed Level 1 Intensive Arabic Program with predicate{' '}
-                <strong>Mumtaz (Excellent — 87.50%)</strong>: Listening 92,
+                <strong>Mumtaz (Excellent &mdash; 87.50%)</strong>: Listening 92,
                 Speaking 89, Writing 85, Reading 84.
               </p>
             </div>
             <div className="cv-cert-box">
               <h4>English Program Kampung Inggris</h4>
               <div className="issuer">
-                Pare-Dise International Language Academy · 18 Aug 2023 · Reg No:
+                Pare-Dise International Language Academy &middot; 18 Aug 2023 &middot; Reg No:
                 005654
               </div>
               <p>
@@ -513,9 +520,8 @@ export default function ResumePage() {
               </p>
             </div>
           </div>
-        </section>
+        </div>
       </main>
     </div>
   );
 }
-
