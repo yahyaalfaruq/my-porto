@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -78,7 +78,7 @@ export default function PortfolioPage() {
   // Refs
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const cursorGlowRef = useRef<HTMLDivElement | null>(null);
-  const heroImgRef = useRef<HTMLImageElement | null>(null);
+  const heroWrapRef = useRef<HTMLDivElement | null>(null);
   const langSwitcherRef = useRef<HTMLDivElement | null>(null);
 
   const dict = T[lang] || T.en;
@@ -312,66 +312,87 @@ export default function PortfolioPage() {
     };
   }, []);
 
-  // Draggable hero image
+  // Draggable hero image (moves photo + glow + ring + 3 floating badges together)
   useEffect(() => {
-    const heroImg = heroImgRef.current;
-    if (!heroImg) return;
+    const wrap = heroWrapRef.current;
+    if (!wrap) return;
     let dragging = false;
-    let ox = 0;
-    let oy = 0;
-    let cx = 0;
-    let cy = 0;
+    let activePointerId: number | null = null;
+    let startX = 0;
+    let startY = 0;
 
-    const onDown = (e: MouseEvent) => {
-      dragging = true;
-      ox = e.clientX - cx;
-      oy = e.clientY - cy;
-      heroImg.style.transition = 'none';
-    };
-    const onMove = (e: MouseEvent) => {
-      if (!dragging) return;
-      cx = e.clientX - ox;
-      cy = e.clientY - oy;
-      heroImg.style.transform = `translate(${cx}px, ${cy}px) rotate(${cx * 0.04}deg)`;
-    };
-    const onUp = () => {
-      if (!dragging) return;
+    const resetPosition = () => {
+      if (!dragging && activePointerId === null) return;
       dragging = false;
-      cx = 0;
-      cy = 0;
-      heroImg.style.transition =
-        'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
-      heroImg.style.transform = 'translate(0,0) rotate(0deg)';
-    };
-    const onTouchStart = (e: TouchEvent) => {
-      const t = e.touches[0];
-      dragging = true;
-      ox = t.clientX - cx;
-      oy = t.clientY - cy;
-      heroImg.style.transition = 'none';
-    };
-    const onTouchMove = (e: TouchEvent) => {
-      if (!dragging) return;
-      const t = e.touches[0];
-      cx = t.clientX - ox;
-      cy = t.clientY - oy;
-      heroImg.style.transform = `translate(${cx}px, ${cy}px)`;
+      if (activePointerId !== null) {
+        try {
+          if (wrap.hasPointerCapture(activePointerId)) {
+            wrap.releasePointerCapture(activePointerId);
+          }
+        } catch {
+          // ignore
+        }
+        activePointerId = null;
+      }
+      wrap.classList.remove('is-dragging');
+      wrap.style.transition =
+        'transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)';
+      wrap.style.transform = 'translate3d(0px, 0px, 0px) rotate(0deg)';
     };
 
-    heroImg.addEventListener('mousedown', onDown);
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
-    heroImg.addEventListener('touchstart', onTouchStart, { passive: true });
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
-    window.addEventListener('touchend', onUp);
+    const onPointerDown = (e: PointerEvent) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      e.preventDefault();
+      dragging = true;
+      activePointerId = e.pointerId;
+      startX = e.clientX;
+      startY = e.clientY;
+      wrap.classList.add('is-dragging');
+      wrap.style.transition = 'none';
+      try {
+        wrap.setPointerCapture(e.pointerId);
+      } catch {
+        // ignore
+      }
+    };
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!dragging || e.pointerId !== activePointerId) return;
+      if (e.pointerType === 'mouse' && (e.buttons & 1) === 0) {
+        resetPosition();
+        return;
+      }
+      const rawDx = e.clientX - startX;
+      const rawDy = e.clientY - startY;
+      const maxRadius = 120;
+      const dist = Math.hypot(rawDx, rawDy);
+      const scale =
+        dist > maxRadius ? (maxRadius + (dist - maxRadius) * 0.25) / dist : 1;
+      const dx = rawDx * scale;
+      const dy = rawDy * scale;
+      wrap.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0px) rotate(${(dx * 0.045).toFixed(2)}deg)`;
+    };
+
+    const onPointerUp = () => {
+      resetPosition();
+    };
+
+    wrap.addEventListener('pointerdown', onPointerDown);
+    wrap.addEventListener('pointermove', onPointerMove);
+    wrap.addEventListener('pointerup', onPointerUp);
+    wrap.addEventListener('pointercancel', onPointerUp);
+    wrap.addEventListener('lostpointercapture', onPointerUp);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('blur', onPointerUp);
 
     return () => {
-      heroImg.removeEventListener('mousedown', onDown);
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseup', onUp);
-      heroImg.removeEventListener('touchstart', onTouchStart);
-      window.removeEventListener('touchmove', onTouchMove);
-      window.removeEventListener('touchend', onUp);
+      wrap.removeEventListener('pointerdown', onPointerDown);
+      wrap.removeEventListener('pointermove', onPointerMove);
+      wrap.removeEventListener('pointerup', onPointerUp);
+      wrap.removeEventListener('pointercancel', onPointerUp);
+      wrap.removeEventListener('lostpointercapture', onPointerUp);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('blur', onPointerUp);
     };
   }, []);
 
@@ -693,9 +714,9 @@ export default function PortfolioPage() {
   };
 
   const langMeta: Record<LangCode, { flag: string; label: string }> = {
-    en: { flag: '🇬🇧', label: 'EN' },
-    id: { flag: '🇮🇩', label: 'ID' },
-    ar: { flag: '🇸🇦', label: 'AR' },
+    en: { flag: 'ðŸ‡¬ðŸ‡§', label: 'EN' },
+    id: { flag: 'ðŸ‡®ðŸ‡©', label: 'ID' },
+    ar: { flag: 'ðŸ‡¸ðŸ‡¦', label: 'AR' },
   };
 
   const circumference = 2 * Math.PI * 52;
@@ -844,22 +865,22 @@ export default function PortfolioPage() {
               >
                 <button
                   type="button"
-                  className="lang-btn"
+                  className={`lang-btn ${langMenuOpen ? 'open' : ''}`}
                   onClick={(e) => {
                     e.stopPropagation();
                     setLangMenuOpen((v) => !v);
                   }}
                 >
                   <span>{langMeta[lang].flag}</span>
-                  <span>{langMeta[lang].label}</span>
+                  <span id="langLabel">{langMeta[lang].label}</span>
                   <i className="fas fa-chevron-down"></i>
                 </button>
-                <div className="lang-menu">
+                <div className={`lang-menu ${langMenuOpen ? 'open' : ''}`}>
                   {(
                     [
-                      { code: 'en', text: '🇬🇧 English' },
-                      { code: 'id', text: '🇮🇩 Indonesia' },
-                      { code: 'ar', text: '🇸🇦 العربية' },
+                      { code: 'en', text: 'ðŸ‡¬ðŸ‡§ English' },
+                      { code: 'id', text: 'ðŸ‡®ðŸ‡© Indonesia' },
+                      { code: 'ar', text: 'ðŸ‡¸ðŸ‡¦ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©' },
                     ] as { code: LangCode; text: string }[]
                   ).map((opt) => (
                     <button
@@ -868,7 +889,8 @@ export default function PortfolioPage() {
                       className={`lang-opt ${
                         lang === opt.code ? 'active' : ''
                       }`}
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         setLang(opt.code);
                         setLangMenuOpen(false);
                       }}
@@ -967,14 +989,15 @@ export default function PortfolioPage() {
             </div>
           </div>
 
-          <div className="hero-image">
+          <div className="hero-image" ref={heroWrapRef}>
             <div className="hero-image-glow"></div>
             <div className="hero-image-ring"></div>
             <img
               src="/assets/profile.png"
               alt="Yahya Al Faruq"
               id="heroImg"
-              ref={heroImgRef}
+              draggable={false}
+              onDragStart={(e) => e.preventDefault()}
             />
             <div className="floating-badge badge-react">
               <i className="fab fa-react"></i> React &amp; TS
@@ -1745,7 +1768,7 @@ export default function PortfolioPage() {
                     className="testimonial-stars"
                     aria-label="5 out of 5 stars"
                   >
-                    ★★★★★
+                    â˜…â˜…â˜…â˜…â˜…
                   </div>
                   <span className="testimonial-badge">{rev.badge}</span>
                 </div>

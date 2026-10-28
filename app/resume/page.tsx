@@ -156,7 +156,7 @@ export default function ResumePage() {
       </div>
 
       <main className="cv-sheet">
-        <header className="cv-header">
+        <div className="cv-header">
           <div className="cv-brand">
             <svg
               className="cv-brand-logo"
@@ -227,7 +227,7 @@ export default function ResumePage() {
               </a>
             </div>
           </div>
-        </header>
+        </div>
 
         <section className="cv-section">
           <h2 className="cv-section-title">Professional Summary</h2>
