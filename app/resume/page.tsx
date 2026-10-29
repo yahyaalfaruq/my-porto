@@ -9,8 +9,8 @@ export default function ResumePage() {
       <style>{`
         .cv-page-root {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-          background: #f1f5f9;
-          color: #0f172a;
+          background: #f4f4f5;
+          color: #09090b;
           line-height: 1.5;
           font-size: 13.2px;
           padding: 32px 16px;
@@ -35,17 +35,21 @@ export default function ResumePage() {
           font-weight: 600;
           text-decoration: none;
           cursor: pointer;
-          border: 1px solid #cbd5e1;
+          border: 1px solid #d4d4d8;
           background: #fff;
-          color: #0f172a;
+          color: #09090b;
           transition: all 0.2s;
         }
-        .cv-btn:hover { border-color: #6d28d9; color: #6d28d9; }
+        .cv-btn:hover { border-color: #09090b; color: #09090b; background: #f4f4f5; }
         .cv-btn.primary {
-          background: linear-gradient(135deg, #7c3aed, #06b6d4);
-          color: #fff;
-          border: none;
-          box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+          background: #09090b;
+          color: #fafafa;
+          border: 1px solid #09090b;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        }
+        .cv-btn.primary:hover {
+          background: #27272a;
+          color: #fafafa;
         }
         .cv-sheet {
           max-width: 210mm;
@@ -53,7 +57,8 @@ export default function ResumePage() {
           background: #fff;
           padding: 16mm 18mm;
           border-radius: 12px;
-          box-shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
+          border: 1px solid #e4e4e7;
+          box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
         }
         .cv-header {
           display: flex;
@@ -61,7 +66,7 @@ export default function ResumePage() {
           align-items: flex-start;
           gap: 20px;
           padding: 0 0 14px 0 !important;
-          border-bottom: 2px solid #0f172a;
+          border-bottom: 2px solid #09090b;
           margin-bottom: 14px;
           position: static !important;
           background: transparent !important;
@@ -72,23 +77,23 @@ export default function ResumePage() {
           font-size: 24px;
           font-weight: 800;
           letter-spacing: -0.03em;
-          color: #0f172a;
+          color: #09090b;
           line-height: 1.15;
           margin: 0;
         }
         .cv-role {
           font-size: 13.5px;
           font-weight: 600;
-          color: #6d28d9;
+          color: #3f3f46;
           margin-top: 2px;
         }
         .cv-contact {
           text-align: right;
           font-size: 12px;
-          color: #334155;
+          color: #3f3f46;
           line-height: 1.65;
         }
-        .cv-contact a { color: #334155; text-decoration: none; }
+        .cv-contact a { color: #3f3f46; text-decoration: none; }
         .cv-section {
           padding: 0 !important;
           margin: 0 0 14px 0 !important;
@@ -99,16 +104,16 @@ export default function ResumePage() {
           font-weight: 800;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          color: #6d28d9;
-          border-bottom: 1px solid #e2e8f0;
+          color: #09090b;
+          border-bottom: 1px solid #d4d4d8;
           padding-bottom: 4px;
           margin-bottom: 8px;
         }
-        .cv-summary { color: #334155; text-align: justify; margin: 0; }
+        .cv-summary { color: #27272a; text-align: justify; margin: 0; }
         .cv-skills-table { width: 100%; border-collapse: collapse; }
         .cv-skills-table td { padding: 3px 0; vertical-align: top; }
-        .cv-skills-table td.label { width: 155px; font-weight: 700; color: #0f172a; }
-        .cv-skills-table td.val { color: #334155; }
+        .cv-skills-table td.label { width: 155px; font-weight: 700; color: #09090b; }
+        .cv-skills-table td.val { color: #27272a; }
         .cv-item { margin-bottom: 10px; }
         .cv-item:last-child { margin-bottom: 0; }
         .cv-item-head {
@@ -117,25 +122,25 @@ export default function ResumePage() {
           align-items: baseline;
           gap: 12px;
         }
-        .cv-item-title { font-weight: 700; font-size: 13.5px; color: #0f172a; }
-        .cv-item-sub { font-weight: 600; color: #0891b2; font-size: 12.2px; }
-        .cv-item-meta { font-size: 11.8px; font-weight: 600; color: #64748b; white-space: nowrap; }
-        .cv-item ul { margin: 4px 0 0 16px; color: #334155; }
+        .cv-item-title { font-weight: 700; font-size: 13.5px; color: #09090b; }
+        .cv-item-sub { font-weight: 600; color: #52525b; font-size: 12.2px; }
+        .cv-item-meta { font-size: 11.8px; font-weight: 600; color: #71717a; white-space: nowrap; }
+        .cv-item ul { margin: 4px 0 0 16px; color: #27272a; }
         .cv-item li { margin-bottom: 2.5px; }
         .cv-cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
         .cv-cert-box {
-          border: 1px solid #e2e8f0;
+          border: 1px solid #e4e4e7;
           border-radius: 8px;
           padding: 8px 11px;
-          background: #f8fafc;
+          background: #fafafa;
         }
-        .cv-cert-box h4 { font-size: 12.5px; font-weight: 700; color: #0f172a; margin: 0 0 2px 0; }
-        .cv-cert-box .issuer { font-size: 11.5px; font-weight: 600; color: #6d28d9; margin-bottom: 2px; }
-        .cv-cert-box p { font-size: 11.5px; color: #334155; margin: 0; }
+        .cv-cert-box h4 { font-size: 12.5px; font-weight: 700; color: #09090b; margin: 0 0 2px 0; }
+        .cv-cert-box .issuer { font-size: 11.5px; font-weight: 600; color: #52525b; margin-bottom: 2px; }
+        .cv-cert-box p { font-size: 11.5px; color: #27272a; margin: 0; }
         @media print {
           .cv-page-root { background: #fff; padding: 0; }
           .cv-toolbar { display: none !important; }
-          .cv-sheet { box-shadow: none; border-radius: 0; padding: 10mm 14mm; max-width: 100%; }
+          .cv-sheet { box-shadow: none; border: none; border-radius: 0; padding: 10mm 14mm; max-width: 100%; }
         }
         @media (max-width: 640px) {
           .cv-header { flex-direction: column; }
@@ -171,37 +176,24 @@ export default function ResumePage() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <defs>
-                <linearGradient
-                  id="cvGrad"
-                  x1="0"
-                  y1="0"
-                  x2="36"
-                  y2="36"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0%" stopColor="#7c3aed" />
-                  <stop offset="100%" stopColor="#06b6d4" />
-                </linearGradient>
-              </defs>
               <rect
                 x="2"
                 y="2"
                 width="32"
                 height="32"
-                rx="10"
-                fill="#050b18"
-                stroke="url(#cvGrad)"
+                rx="8"
+                fill="#09090b"
+                stroke="#09090b"
                 strokeWidth="2"
               />
               <path
                 d="M11.5 11.5L18 19.2L24.5 11.5M18 19.2V25.5"
-                stroke="url(#cvGrad)"
+                stroke="#fafafa"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-              <circle cx="25.5" cy="24.5" r="1.9" fill="#06b6d4" />
+              <circle cx="25.5" cy="24.5" r="1.9" fill="#fafafa" />
             </svg>
             <div>
               <h1>YAHYA AL FARUQ</h1>

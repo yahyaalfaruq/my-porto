@@ -75,7 +75,7 @@ export const T: Record<LangCode, Record<string, any>> = {
     f_name:'Full Name', f_email:'Email Address', f_subj:'Subject', f_msg:'Message',
     f_name_ph:'John Doe', f_email_ph:'john@example.com', f_subj_ph:'Project collaboration...', f_msg_ph:'Tell me about your project...',
     f_submit:'Send Message', f_sent:'Message Sent!',
-    foot_built:'Designed & built with ❤️ by', foot_copy:'© 2026 Yahya Al Faruq. All Rights Reserved.',
+    foot_built:'Designed & engineered by', foot_copy:'© 2026 Yahya Al Faruq. All Rights Reserved.',
     footer_name:'Yahya Al Faruq',
   },
   id: {
@@ -152,7 +152,7 @@ export const T: Record<LangCode, Record<string, any>> = {
     f_name:'Nama Lengkap', f_email:'Alamat Email', f_subj:'Subjek', f_msg:'Pesan',
     f_name_ph:'Budi Santoso', f_email_ph:'budi@example.com', f_subj_ph:'Kolaborasi proyek...', f_msg_ph:'Ceritakan tentang proyek Anda...',
     f_submit:'Kirim Pesan', f_sent:'Pesan Terkirim!',
-    foot_built:'Dirancang & dibangun dengan ❤️ oleh', foot_copy:'© 2026 Yahya Al Faruq. Hak Cipta Dilindungi.',
+    foot_built:'Dirancang & dikembangkan oleh', foot_copy:'© 2026 Yahya Al Faruq. Hak Cipta Dilindungi.',
     footer_name:'Yahya Al Faruq',
   },
   ar: {
@@ -229,16 +229,16 @@ export const T: Record<LangCode, Record<string, any>> = {
     f_name:'الاسم الكامل', f_email:'البريد الإلكتروني', f_subj:'الموضوع', f_msg:'الرسالة',
     f_name_ph:'أحمد محمد', f_email_ph:'ahmad@example.com', f_subj_ph:'تعاون في مشروع...', f_msg_ph:'أخبرني عن مشروعك...',
     f_submit:'إرسال الرسالة', f_sent:'تم الإرسال!',
-    foot_built:'صُمِّم وبُنِي بـ ❤️ بواسطة', foot_copy:'© 2026 يحيى الفاروق. جميع الحقوق محفوظة.',
+    foot_built:'تصميم وتطوير', foot_copy:'© 2026 يحيى الفاروق. جميع الحقوق محفوظة.',
     footer_name:'يحيى الفاروق',
   }
 };
 
 export const LANG_COLORS: Record<string, string> = {
-  JavaScript:'#f1e05a', TypeScript:'#3178c6', HTML:'#e34c26', CSS:'#563d7c', PHP:'#4F5D95',
-  Blade:'#f7523f', Laravel:'#ff2d20', React:'#61dafb', Python:'#3572A5', Vue:'#41b883',
-  Dart:'#00B4AB', Java:'#b07219', Kotlin:'#A97BFF', Go:'#00ADD8', 'C++':'#f34b7d',
-  C:'#555555', Shell:'#89e051', SCSS:'#c6538c',
+  JavaScript:'#e4e4e7', TypeScript:'#fafafa', HTML:'#a1a1aa', CSS:'#d4d4d8', PHP:'#e4e4e7',
+  Blade:'#a1a1aa', Laravel:'#fafafa', React:'#e4e4e7', Python:'#d4d4d8', Vue:'#a1a1aa',
+  Dart:'#d4d4d8', Java:'#a1a1aa', Kotlin:'#d4d4d8', Go:'#e4e4e7', 'C++':'#a1a1aa',
+  C:'#71717a', Shell:'#a1a1aa', SCSS:'#a1a1aa',
 };
 
 export const REPO_META: Record<string, { desc: string; topics: string[] }> = {
@@ -367,7 +367,7 @@ export const FLAGSHIP_PROJECTS: RepoItem[] = [
     created_at: '2025-11-01T00:00:00Z',
     fork: false,
     size: 1200,
-    custom_preview: '/assets/images/project6.png',
+    custom_preview: 'fallback',
   },
   {
     name: 'pendataan-siswa-buku-induk',
@@ -385,7 +385,7 @@ export const FLAGSHIP_PROJECTS: RepoItem[] = [
     created_at: '2026-04-01T00:00:00Z',
     fork: false,
     size: 850,
-    custom_preview: '/assets/images/project2.png',
+    custom_preview: 'fallback',
   },
   {
     name: 'hafiz-quran-app',

@@ -12,7 +12,7 @@ import {
 } from './data/portfolioData';
 
 const GH_USER = 'yahyaalfaruq';
-const GH_CACHE_KEY = `gh_repos_next_v3_${GH_USER}`;
+const GH_CACHE_KEY = `gh_repos_next_v4_${GH_USER}`;
 const GH_CACHE_TTL = 1000 * 60 * 30;
 const INITIAL_VISIBLE = 6;
 
@@ -261,15 +261,15 @@ export default function PortfolioPage() {
     resize();
     window.addEventListener('resize', resize);
 
-    const COLORS = ['#a855f7', '#06b6d4', '#f472b6', '#818cf8'];
-    const particles = Array.from({ length: 60 }, () => ({
+    const COLORS = ['#d4d4d8', '#a1a1aa', '#71717a', '#52525b'];
+    const particles = Array.from({ length: 42 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      r: Math.random() * 1.8 + 0.4,
-      dx: (Math.random() - 0.5) * 0.35,
-      dy: (Math.random() - 0.5) * 0.35,
+      r: Math.random() * 1.4 + 0.4,
+      dx: (Math.random() - 0.5) * 0.25,
+      dy: (Math.random() - 0.5) * 0.25,
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      alpha: Math.random() * 0.5 + 0.15,
+      alpha: Math.random() * 0.35 + 0.1,
     }));
 
     const draw = () => {
@@ -279,10 +279,10 @@ export default function PortfolioPage() {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 130) {
+          if (dist < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(168,85,247,${0.08 * (1 - dist / 130)})`;
-            ctx.lineWidth = 0.6;
+            ctx.strokeStyle = `rgba(161,161,170,${0.05 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
@@ -738,8 +738,8 @@ export default function PortfolioPage() {
               <svg viewBox="0 0 120 120">
                 <defs>
                   <linearGradient id="loaderGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#a855f7" />
-                    <stop offset="100%" stopColor="#06b6d4" />
+                    <stop offset="0%" stopColor="currentColor" />
+                    <stop offset="100%" stopColor="currentColor" />
                   </linearGradient>
                 </defs>
                 <circle className="loader-ring-track" cx="60" cy="60" r="52" />
@@ -795,36 +795,23 @@ export default function PortfolioPage() {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <defs>
-                    <linearGradient
-                      id="yafLogoGrad"
-                      x1="0"
-                      y1="0"
-                      x2="36"
-                      y2="36"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop offset="0%" stopColor="#a855f7" />
-                      <stop offset="100%" stopColor="#06b6d4" />
-                    </linearGradient>
-                  </defs>
                   <rect
                     x="2"
                     y="2"
                     width="32"
                     height="32"
                     rx="10"
-                    stroke="url(#yafLogoGrad)"
+                    stroke="currentColor"
                     strokeWidth="2"
                   />
                   <path
                     d="M11.5 11.5L18 19.2L24.5 11.5M18 19.2V25.5"
-                    stroke="url(#yafLogoGrad)"
+                    stroke="currentColor"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                  <circle cx="25.5" cy="24.5" r="1.9" fill="#06b6d4" />
+                  <circle cx="25.5" cy="24.5" r="1.9" fill="currentColor" />
                 </svg>
               </span>
               <span className="logo-wordmark">
@@ -1569,16 +1556,18 @@ export default function PortfolioPage() {
               </div>
             ) : (
               visibleRepos.map((r) => {
-                const color = LANG_COLORS[r.language || ''] || '#a855f7';
+                const color = LANG_COLORS[r.language || ''] || '#d4d4d8';
                 const live =
                   r.homepage && r.homepage.trim()
                     ? /^https?:\/\//i.test(r.homepage.trim())
                       ? r.homepage.trim()
                       : `https://${r.homepage.trim()}`
                     : '';
-                const preview =
-                  r.custom_preview ||
-                  `https://opengraph.githubassets.com/1/${r.full_name}`;
+                const useFallback = r.custom_preview === 'fallback';
+                const preview = useFallback
+                  ? ''
+                  : r.custom_preview ||
+                    `https://opengraph.githubassets.com/1/${r.full_name}`;
                 const desc = r.description ? r.description : dict.p_nodesc;
                 const tags: string[] = [];
                 if (r.language) tags.push(r.language);
@@ -1596,21 +1585,36 @@ export default function PortfolioPage() {
                     onMouseLeave={handleCardTiltLeave}
                   >
                     <div className="card-shine"></div>
-                    <div className="project-image">
-                      <img
-                        src={preview}
-                        alt={r.name}
-                        loading="lazy"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          e.currentTarget.parentElement?.classList.add(
-                            'no-preview'
-                          );
-                        }}
-                      />
+                    <div
+                      className={`project-image ${
+                        useFallback ? 'no-preview' : ''
+                      }`}
+                    >
+                      {!useFallback && (
+                        <img
+                          src={preview}
+                          alt={r.name}
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.parentElement?.classList.add(
+                              'no-preview'
+                            );
+                          }}
+                        />
+                      )}
                       <div className="project-fallback">
-                        <i className="fab fa-github"></i>
-                        <span>{prettyRepoName(r.name)}</span>
+                        <i
+                          className={
+                            useFallback
+                              ? 'fas fa-layer-group'
+                              : 'fab fa-github'
+                          }
+                        ></i>
+                        <span>{r.title || prettyRepoName(r.name)}</span>
+                        {tags.length > 0 && (
+                          <small>{tags.slice(0, 3).join(' · ')}</small>
+                        )}
                       </div>
                       {r.language && (
                         <span className="project-lang-badge">
@@ -1913,8 +1917,7 @@ export default function PortfolioPage() {
                 style={
                   formSubmitted
                     ? {
-                        background:
-                          'linear-gradient(135deg, #22c55e, #06b6d4)',
+                        opacity: 0.75,
                       }
                     : undefined
                 }
@@ -1952,17 +1955,17 @@ export default function PortfolioPage() {
                     width="32"
                     height="32"
                     rx="10"
-                    stroke="url(#yafLogoGrad)"
+                    stroke="currentColor"
                     strokeWidth="2"
                   />
                   <path
                     d="M11.5 11.5L18 19.2L24.5 11.5M18 19.2V25.5"
-                    stroke="url(#yafLogoGrad)"
+                    stroke="currentColor"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                  <circle cx="25.5" cy="24.5" r="1.9" fill="#06b6d4" />
+                  <circle cx="25.5" cy="24.5" r="1.9" fill="currentColor" />
                 </svg>
               </span>
               <span className="logo-wordmark">
