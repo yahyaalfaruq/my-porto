@@ -67,51 +67,52 @@ const CV_DATA: Record<Lang, CvDict> = {
     loc: 'Makassar / Solo Raya, Indonesia',
     summary_title: 'Professional Summary',
     summary:
-      "Full-Stack Software Engineer educated in Information & Technology (IT) and Tahfidz Al-Qur'an at Pondok Pesantren Qur'an & IT Al Mahir (PPQITA), Karanganyar (Solo Raya). Experienced in architecting and deploying 50+ web repositories and institutional platforms including SIAKAD Almahira (Assessment, Attendance, Tahfidz Tracking & Digital Report Cards), Student Master Registry systems, Point-of-Sale (POS) cashier apps, offline-first PWAs, and RESTful APIs using Laravel 12, React 19, TypeScript, Node.js, and Supabase. Certified in Responsive Web Design (PPQITA), TEKNOVISTAFEST Web Design Competition (Universitas Airlangga), Arabic Language Preparation (Mumtaz / 87.50% — Darul Lughah Al Arabiyah), and Intensive English (Pare-Dise Kampung Inggris).",
+      "Full-Stack Software Engineer educated in Information & Technology (IT) and Tahfidz Al-Qur'an at Pondok Pesantren Qur'an & IT Al Mahir (PPQITA), Karanganyar (Solo Raya). Experienced in building and deploying 50+ web repositories and school systems including SIAKAD Almahira (Assessment, Attendance, Tahfidz Tracking & Digital Report Cards), Student Master Registry systems, Point-of-Sale (POS) cashier apps, offline-first PWAs, and RESTful APIs using Laravel 12, React 19, TypeScript, Node.js, and Supabase. Certified in Responsive Web Design (PPQITA), TEKNOVISTAFEST Web Design Competition (Universitas Airlangga), Arabic Language Preparation (Mumtaz / 87.50% · Darul Lughah Al Arabiyah), and Intensive English (Pare-Dise Kampung Inggris).",
     skills_title: 'Technical Skills',
     sk_fe: 'Frontend Development',
     sk_be: 'Backend Development',
     sk_db: 'Database & Cloud',
     sk_tools: 'Tools & Workflow',
     sk_lang: 'Languages',
-    sk_lang_val: 'Indonesian (Native), Arabic (Certified Mumtaz · 87.50%), English (Certified · Kampung Inggris Pare)',
+    sk_lang_val:
+      'Indonesian (Native), Arabic (Certified Mumtaz · 87.50%), English (Certified · Kampung Inggris Pare)',
     exp_title: 'Featured Projects & Engineering Experience',
     exp1_title: 'SIAKAD Almahira · Assessment, Attendance & Digital Report Cards',
     exp1_sub: 'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase',
     exp1_meta: 'PPQ IT Al Mahir · 2025 – 2026',
     exp1_b1:
-      'Engineered the core downstream module (PenilaianDanPresensi) integrating 5 sub-modules: Real-Time Analytics Dashboard, Academic Grading, Tahfidz Al-Qur\'an Tracking, Schedule-Based Attendance, and Student Leave/Sick Permits (IzinSakit).',
+      "Built the core downstream module (PenilaianDanPresensi) integrating 5 sub-modules: Real-Time Analytics Dashboard, Academic Grading, Tahfidz Al-Qur'an Tracking, Schedule-Based Attendance, and Student Leave/Sick Permits (IzinSakit).",
     exp1_b2:
-      'Built automated Smart Attendance Override: approving a student leave/sick request automatically syncs with active class schedules (JadwalPelajaran) and updates attendance records without manual teacher re-entry.',
+      'Implemented automated Smart Attendance Override: approving a student leave/sick request automatically syncs with active class schedules (JadwalPelajaran) and updates attendance records without manual teacher re-entry.',
     exp1_b3:
-      'Implemented dynamic weighted grading formulas (Daily Average, Mid-Term/UTS, Final/UAS) with KKM validation, automatic class ranking, Arabic predicate conversion (Mumtaz, Jayyid Jiddan, Jayyid, Maqbul), and print-optimized A4 Digital Report Cards (PDF).',
+      'Implemented dynamic weighted grading formulas (Daily Average, Mid-Term/UTS, Final/UAS) with KKM validation, automatic class ranking, Arabic predicate conversion (Mumtaz, Jayyid Jiddan, Jayyid, Maqbul), and print-ready A4 Digital Report Cards (PDF).',
     exp2_title: 'Student Master Registry, POS Cashier & Santri Platforms',
     exp2_sub: 'React 19, TypeScript, Vite, SheetJS (XLSX), Supabase',
     exp2_meta: '2024 – 2026',
     exp2_b1:
-      'Developed modern student registry & digital Buku Induk platform connected to Supabase Cloud Database with multi-class filtering and one-click Excel (.xlsx) import/export using SheetJS.',
+      'Developed student registry & digital Buku Induk platform connected to Supabase Cloud Database with multi-class filtering and one-click Excel (.xlsx) import/export using SheetJS.',
     exp2_b2:
       'Built Web Kasir POS (TypeScript) with real-time shopping cart calculation, receipts, and responsive cashier layout.',
     exp2_b3:
       'Built Dompet Santri (student digital allowance tracker) and PSB/PPDB online student admission portals on Vercel.',
-    exp3_title: 'Tugazku PWA, Qur\'an REST API & Responsive Web Portfolios',
+    exp3_title: "Tugazku PWA, Qur'an REST API & Responsive Web Portfolios",
     exp3_sub: 'IndexedDB, Service Worker, Node.js, Express.js, TypeScript',
     exp3_meta: '2023 – 2025',
     exp3_b1:
       'Created Tugazku offline-first Progressive Web App (PWA) with client-side task persistence using browser IndexedDB and Service Workers.',
     exp3_b2:
-      'Architected RESTful Qur\'an API service in TypeScript, Zakat Mal Calculator, Latin-to-Arabic Converter, and 15+ live client web apps including Best Kaca Film and Mahir Wisata.',
+      "Built RESTful Qur'an API service in TypeScript, Zakat Mal Calculator, Latin-to-Arabic Converter, and 15+ live web apps including Best Kaca Film and Mahir Wisata.",
     edu_title: 'Education',
     edu1_title: "Pondok Pesantren Qur'an & IT Al Mahir (PPQITA)",
     edu1_sub: "Information & Technology (IT) and Tahfidz Al-Qur'an",
     edu1_meta: 'Karanganyar, Jawa Tengah · 2023 – 2026',
     edu1_b1:
-      'Completed secondary education (Program Kesetaraan Paket C — PKBM Inisiator Salam Kariim, NISN: 0086397610) with specialization in Software Engineering, Full-Stack Web Development, Arabic Language, and Tahfidz Al-Qur\'an.',
+      "Completed secondary education (Program Kesetaraan Paket C · PKBM Inisiator Salam Kariim, NISN: 0086397610) with specialization in Software Engineering, Full-Stack Web Development, Arabic Language, and Tahfidz Al-Qur'an.",
     cert_title: 'Official Certifications',
     c1_t: 'Responsive Web Design Certification',
     c1_i: 'PPQ IT Al Mahir (PPQITA) · T.A. 2023/2024',
     c1_d: 'Completed 1-semester intensive Responsive Web Design curriculum with Grade B (Good). Signed by Headmaster Dhanny Ardiansyah.',
-    c2_t: 'Web Design Competition — TEKNOVISTAFEST',
+    c2_t: 'Web Design Competition · TEKNOVISTAFEST',
     c2_i: 'Fakultas Vokasi Universitas Airlangga (UNAIR) · 19 Oct 2024',
     c2_d: 'Awarded official certificate as Participant in the TEKNOVISTAFEST Web Design Competition organized by HIMA Teknik Informatika UNAIR.',
     c3_t: 'Arabic Language Preparation (Mumtaz / 87.50)',
@@ -129,20 +130,21 @@ const CV_DATA: Record<Lang, CvDict> = {
     loc: 'Makassar / Solo Raya, Indonesia',
     summary_title: 'Ringkasan Profesional',
     summary:
-      "Full-Stack Software Engineer lulusan program Informasi & Teknologi (IT) dan Tahfidz Al-Qur'an di Pondok Pesantren Qur'an & IT Al Mahir (PPQITA), Karanganyar (Solo Raya). Berpengalaman merancang dan mempublikasikan 50+ repositori web dan sistem institusi — termasuk SIAKAD Almahira (Modul Penilaian, Presensi Pintar, Tahfidz & Cetak Raport Digital), Sistem Buku Induk Siswa, aplikasi kasir POS, PWA offline-first, dan RESTful API menggunakan Laravel 12, React 19, TypeScript, Node.js, dan Supabase. Memiliki sertifikasi resmi Responsive Web Design (PPQITA), Lomba Web Design TEKNOVISTAFEST (Universitas Airlangga), Bahasa Arab (Predikat Mumtaz / 87.50% — Darul Lughah Al Arabiyah), dan Bahasa Inggris (Pare-Dise Kampung Inggris).",
+      "Full-Stack Software Engineer lulusan program Informasi & Teknologi (IT) dan Tahfidz Al-Qur'an di Pondok Pesantren Qur'an & IT Al Mahir (PPQITA), Karanganyar (Solo Raya). Berpengalaman merancang dan mempublikasikan 50+ repositori web dan sistem sekolah termasuk SIAKAD Almahira (Modul Penilaian, Presensi Pintar, Tahfidz & Cetak Raport Digital), Sistem Buku Induk Siswa, aplikasi kasir POS, PWA offline-first, dan RESTful API menggunakan Laravel 12, React 19, TypeScript, Node.js, dan Supabase. Memiliki sertifikasi resmi Responsive Web Design (PPQITA), Lomba Web Design TEKNOVISTAFEST (Universitas Airlangga), Bahasa Arab (Predikat Mumtaz / 87.50% · Darul Lughah Al Arabiyah), dan Bahasa Inggris (Pare-Dise Kampung Inggris).",
     skills_title: 'Keahlian Teknis',
     sk_fe: 'Pengembangan Frontend',
     sk_be: 'Pengembangan Backend',
     sk_db: 'Basis Data & Cloud',
     sk_tools: 'Alat Kerja & Workflow',
     sk_lang: 'Bahasa',
-    sk_lang_val: 'Bahasa Indonesia (Penutur Asli), Bahasa Arab (Sertifikat Mumtaz · 87.50%), Bahasa Inggris (Sertifikat · Kampung Inggris Pare)',
+    sk_lang_val:
+      'Bahasa Indonesia (Penutur Asli), Bahasa Arab (Sertifikat Mumtaz · 87.50%), Bahasa Inggris (Sertifikat · Kampung Inggris Pare)',
     exp_title: 'Proyek Unggulan & Pengalaman Rekayasa',
     exp1_title: 'SIAKAD Almahira · Modul Penilaian, Presensi & Raport Digital',
     exp1_sub: 'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase',
     exp1_meta: 'PPQ IT Al Mahir · 2025 – 2026',
     exp1_b1:
-      'Merancang modul inti (PenilaianDanPresensi) yang mengintegrasikan 5 sub-modul: Dashboard Statistik Real-Time, Penilaian Akademik Guru, Rekap Tahfidz Al-Qur\'an, Presensi Terintegrasi Jadwal, dan Pengajuan Izin/Sakit Siswa (IzinSakit).',
+      "Mengerjakan modul inti (PenilaianDanPresensi) yang mengintegrasikan 5 sub-modul: Dashboard Statistik Real-Time, Penilaian Akademik Guru, Rekap Tahfidz Al-Qur'an, Presensi Terintegrasi Jadwal, dan Pengajuan Izin/Sakit Siswa (IzinSakit).",
     exp1_b2:
       'Membangun sinkronisasi otomatis Smart Attendance Override: persetujuan izin/sakit otomatis memperbarui presensi jam pelajaran aktif tanpa input ulang manual oleh guru pengampu.',
     exp1_b3:
@@ -156,29 +158,29 @@ const CV_DATA: Record<Lang, CvDict> = {
       'Membangun aplikasi kasir POS (TypeScript) dengan perhitungan keranjang belanja real-time, cetak struk, dan tampilan antarmuka kasir yang responsif.',
     exp2_b3:
       'Mengembangkan Dompet Santri (pencatat keuangan santri) dan portal pendaftaran santri baru (PSB/PPDB) di Vercel.',
-    exp3_title: 'Tugazku PWA, REST API Al-Qur\'an & Portfolio Web Responsif',
+    exp3_title: "Tugazku PWA, REST API Al-Qur'an & Portfolio Web Responsif",
     exp3_sub: 'IndexedDB, Service Worker, Node.js, Express.js, TypeScript',
     exp3_meta: '2023 – 2025',
     exp3_b1:
       'Membangun aplikasi web progresif Tugazku PWA yang berfungsi offline menggunakan Service Worker dan penyimpanan IndexedDB browser.',
     exp3_b2:
-      'Merancang REST API Al-Qur\'an dengan TypeScript, Kalkulator Zakat Mal, Konversi Latin ke Arab, dan 15+ website klien aktif termasuk Best Kaca Film dan Mahir Wisata.',
+      "Merancang REST API Al-Qur'an dengan TypeScript, Kalkulator Zakat Mal, Konversi Latin ke Arab, dan 15+ website aktif termasuk Best Kaca Film dan Mahir Wisata.",
     edu_title: 'Pendidikan',
     edu1_title: "Pondok Pesantren Qur'an & IT Al Mahir (PPQITA)",
     edu1_sub: "Informasi & Teknologi (IT) dan Tahfidz Al-Qur'an",
     edu1_meta: 'Karanganyar, Jawa Tengah · 2023 – 2026',
     edu1_b1:
-      'Menyelesaikan pendidikan menengah (Program Kesetaraan Paket C — PKBM Inisiator Salam Kariim, NISN: 0086397610) dengan fokus Rekayasa Perangkat Lunak, Pengembangan Web Full-Stack, Bahasa Arab, dan Tahfidz Al-Qur\'an.',
+      "Menyelesaikan pendidikan menengah (Program Kesetaraan Paket C · PKBM Inisiator Salam Kariim, NISN: 0086397610) dengan fokus Rekayasa Perangkat Lunak, Pengembangan Web Full-Stack, Bahasa Arab, dan Tahfidz Al-Qur'an.",
     cert_title: 'Sertifikasi Resmi',
     c1_t: 'Sertifikat Responsive Web Design',
     c1_i: 'PPQ IT Al Mahir (PPQITA) · T.A. 2023/2024',
     c1_d: 'Menyelesaikan kurikulum intensif Responsive Web Design selama 1 semester dengan Predikat B (Baik). Ditandatangani Kepala Sekolah Dhanny Ardiansyah.',
-    c2_t: 'Sertifikat Lomba Web Design — TEKNOVISTAFEST',
+    c2_t: 'Sertifikat Lomba Web Design · TEKNOVISTAFEST',
     c2_i: 'Fakultas Vokasi Universitas Airlangga (UNAIR) · 19 Okt 2024',
     c2_d: 'Diberikan sebagai Peserta pada Lomba Web Design TEKNOVISTAFEST yang diselenggarakan oleh HIMA Teknik Informatika UNAIR Surabaya.',
     c3_t: 'Sertifikat Bahasa Arab (Predikat Mumtaz / 87.50)',
     c3_i: 'Darul Lughah Al Arabiyah · 29 Jan 2024 · No: 243193631',
-    c3_d: 'Lulus program I\'dad Lughawiy Tingkat Pertama dengan predikat Mumtaz (87.50%): Istima\' 92, Kalam 89, Kitabah 85, Qira\'ah 84.',
+    c3_d: "Lulus program I'dad Lughawiy Tingkat Pertama dengan predikat Mumtaz (87.50%): Istima' 92, Kalam 89, Kitabah 85, Qira'ah 84.",
     c4_t: 'Sertifikat Program Bahasa Inggris Kampung Inggris',
     c4_i: 'Pare-Dise International Language Academy · 18 Agu 2023 · No: 005654',
     c4_d: 'Menyelesaikan program intensif komunikasi Bahasa Inggris selama 1 bulan di Pare-Dise, Kampung Inggris Pare, Kediri.',
@@ -191,14 +193,15 @@ const CV_DATA: Record<Lang, CvDict> = {
     loc: 'ماكاسار / صولو، إندونيسيا',
     summary_title: 'الملخص المهني',
     summary:
-      'مهندس برمجيات Full-Stack خريج تخصص تقنية المعلومات (IT) وتحفيظ القرآن الكريم في معهد القرآن وتقنية المعلومات الماهر (PPQITA) بصولو. يمتلك خبرة عملية في تطوير ونشر أكثر من 50 مستودعاً برمجياً وأنظمة مؤسسية، تشمل نظام SIAKAD Almahira (وحدات التقييم ورصد الدرجات، والحضور الذكي، ومتابعة التحفيظ، وطباعة الشهادات الرقمية)، ونظام سجل الطلاب العام، وتطبيقات نقاط البيع والكاشير، وتطبيقات الويب التقدمية PWA دون اتصال، وواجهات RESTful API باستخدام Laravel 12 وReact 19 وTypeScript وNode.js وSupabase. حاصل على شهادات معتمدة في تصميم الويب المتجاوب، ومسابقة TEKNOVISTAFEST بجامعة إيرلانغا، واللغة العربية (بتقدير ممتاز 87.50% — دار اللغة العربية)، واللغة الإنجليزية (باري، كديري).',
+      'مهندس برمجيات Full-Stack خريج تخصص تقنية المعلومات (IT) وتحفيظ القرآن الكريم في معهد القرآن وتقنية المعلومات الماهر (PPQITA) بصولو. يمتلك خبرة عملية في تطوير ونشر أكثر من 50 مستودعاً برمجياً وأنظمة مؤسسية، تشمل نظام SIAKAD Almahira (وحدات التقييم ورصد الدرجات، والحضور الذكي، ومتابعة التحفيظ، وطباعة الشهادات الرقمية)، ونظام سجل الطلاب العام، وتطبيقات نقاط البيع والكاشير، وتطبيقات الويب التقدمية PWA دون اتصال، وواجهات RESTful API باستخدام Laravel 12 وReact 19 وTypeScript وNode.js وSupabase. حاصل على شهادات معتمدة في تصميم الويب المتجاوب، ومسابقة TEKNOVISTAFEST بجامعة إيرلانغا، واللغة العربية (بتقدير ممتاز 87.50% · دار اللغة العربية)، واللغة الإنجليزية (باري، كديري).',
     skills_title: 'المهارات التقنية',
     sk_fe: 'تطوير الواجهات الأمامية (Frontend)',
     sk_be: 'تطوير الخوادم الخلفية (Backend)',
     sk_db: 'قواعد البيانات والسحابة',
     sk_tools: 'الأدوات وسير العمل',
     sk_lang: 'اللغات',
-    sk_lang_val: 'الإندونيسية (اللغة الأم)، العربية (شهادة ممتاز · 87.50%)، الإنجليزية (شهادة معتمدة · قرية الإنجليزية باري)',
+    sk_lang_val:
+      'الإندونيسية (اللغة الأم)، العربية (شهادة ممتاز · 87.50%)، الإنجليزية (شهادة معتمدة · قرية الإنجليزية باري)',
     exp_title: 'المشاريع البارزة والخبرة البرمجية',
     exp1_title: 'نظام SIAKAD Almahira · وحدة التقييم والحضور والشهادات الرقمية',
     exp1_sub: 'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase',
@@ -230,12 +233,12 @@ const CV_DATA: Record<Lang, CvDict> = {
     edu1_sub: 'تخصص تقنية المعلومات (IT) وتحفيظ القرآن الكريم',
     edu1_meta: 'كارانغانيار، صولو، إندونيسيا · ٢٠٢٣ – ٢٠٢٦',
     edu1_b1:
-      'إتمام المرحلة الثانوية (برنامج Kesetaraan Paket C — الرقم التعريفي الوطني NISN: 0086397610) مع التركيز على هندسة البرمجيات، وتطوير الويب المتكامل، واللغة العربية، والعلوم الشرعية وتحفيظ القرآن.',
+      'إتمام المرحلة الثانوية (برنامج Kesetaraan Paket C · الرقم التعريفي الوطني NISN: 0086397610) مع التركيز على هندسة البرمجيات، وتطوير الويب المتكامل، واللغة العربية، والعلوم الشرعية وتحفيظ القرآن.',
     cert_title: 'الشهادات الرسمية',
     c1_t: 'شهادة تصميم الويب المتجاوب (Responsive Web Design)',
     c1_i: 'معهد القرآن وتقنية المعلومات الماهر · ٢٠٢٣/٢٠٢٤',
     c1_d: 'إتمام دراسة منهج تصميم الويب المتجاوب لمدة فصل دراسي مكثف بتقدير جيد (Grade B) بتوقيع مدير المعهد الأستاذ داني أرديانشاه.',
-    c2_t: 'شهادة مسابقة تصميم الويب — TEKNOVISTAFEST',
+    c2_t: 'شهادة مسابقة تصميم الويب · TEKNOVISTAFEST',
     c2_i: 'كلية الدراسات المهنية بجامعة إيرلانغا (UNAIR) · ١٩ أكتوبر ٢٠٢٤',
     c2_d: 'شهادة مشاركة رسمية في مسابقة TEKNOVISTAFEST لتصميم الويب المنظمة من رابطة هندسة المعلوماتية بجامعة إيرلانغا، سورابايا.',
     c3_t: 'شهادة إعداد اللغة العربية (بتقدير ممتاز / 87.50)',
@@ -250,24 +253,33 @@ const CV_DATA: Record<Lang, CvDict> = {
 export default function ResumePage() {
   const [lang, setLang] = useState<Lang>('en');
 
-  // Load language preference from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem('lang') as Lang | null;
     if (saved && CV_DATA[saved]) {
       setLang(saved);
+      document.documentElement.lang = saved;
+      document.documentElement.dir = saved === 'ar' ? 'rtl' : 'ltr';
+    } else {
+      document.documentElement.lang = 'en';
+      document.documentElement.dir = 'ltr';
     }
   }, []);
 
   const handleLangChange = (newLang: Lang) => {
     setLang(newLang);
     localStorage.setItem('lang', newLang);
+    document.documentElement.lang = newLang;
+    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
   };
 
   const isRtl = lang === 'ar';
   const t = CV_DATA[lang];
 
   return (
-    <div className={`cv-page-root ${isRtl ? 'is-rtl' : 'is-ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
+    <div
+      className={`cv-page-root ${isRtl ? 'is-rtl' : 'is-ltr'}`}
+      dir={isRtl ? 'rtl' : 'ltr'}
+    >
       <style>{`
         .cv-page-root {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -464,10 +476,10 @@ export default function ResumePage() {
       {/* Toolbar */}
       <div className="cv-toolbar">
         <Link href="/" className="cv-btn">
-          <i className={`fas ${isRtl ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i> {t.back}
+          <i className={`fas ${isRtl ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>{' '}
+          {t.back}
         </Link>
         <div className="cv-actions-group">
-          {/* Language Switcher */}
           <div className="cv-lang-picker" aria-label="Resume Language">
             <button
               type="button"
@@ -580,25 +592,38 @@ export default function ResumePage() {
               <tr>
                 <td className="label">{t.sk_fe}</td>
                 <td className="val">
-                  <bdi dir="ltr">HTML5, CSS3, Tailwind CSS, JavaScript (ES6+), TypeScript, React 19, Next.js, Alpine.js, Blade, Vite, Framer Motion, PWA (IndexedDB)</bdi>
+                  <bdi dir="ltr">
+                    HTML5, CSS3, Tailwind CSS, JavaScript (ES6+), TypeScript,
+                    React 19, Next.js, Alpine.js, Blade, Vite, Framer Motion,
+                    PWA (IndexedDB)
+                  </bdi>
                 </td>
               </tr>
               <tr>
                 <td className="label">{t.sk_be}</td>
                 <td className="val">
-                  <bdi dir="ltr">PHP 8.2+, Laravel 11/12, Node.js, Express.js, RESTful API, DomPDF</bdi>
+                  <bdi dir="ltr">
+                    PHP 8.2+, Laravel 11/12, Node.js, Express.js, RESTful API,
+                    DomPDF
+                  </bdi>
                 </td>
               </tr>
               <tr>
                 <td className="label">{t.sk_db}</td>
                 <td className="val">
-                  <bdi dir="ltr">MySQL, PostgreSQL, Supabase (PostgreSQL &amp; RLS), SQLite, MongoDB, IndexedDB</bdi>
+                  <bdi dir="ltr">
+                    MySQL, PostgreSQL, Supabase (PostgreSQL &amp; RLS), SQLite,
+                    MongoDB, IndexedDB
+                  </bdi>
                 </td>
               </tr>
               <tr>
                 <td className="label">{t.sk_tools}</td>
                 <td className="val">
-                  <bdi dir="ltr">Git, GitHub, Vercel, Composer, NPM, SheetJS (XLSX), Laragon, Linux CLI, Figma</bdi>
+                  <bdi dir="ltr">
+                    Git, GitHub, Vercel, Composer, NPM, SheetJS (XLSX), Laragon,
+                    Linux CLI, Figma
+                  </bdi>
                 </td>
               </tr>
               <tr>
@@ -616,11 +641,14 @@ export default function ResumePage() {
           <div className="cv-item">
             <div className="cv-item-head">
               <div>
-                <span className="cv-item-title">{t.exp1_title}</span>{' '}
-                &middot;{' '}
-                <span className="cv-item-sub"><bdi dir="ltr">{t.exp1_sub}</bdi></span>
+                <span className="cv-item-title">{t.exp1_title}</span> &middot;{' '}
+                <span className="cv-item-sub">
+                  <bdi dir="ltr">{t.exp1_sub}</bdi>
+                </span>
               </div>
-              <span className="cv-item-meta"><bdi dir="ltr">{t.exp1_meta}</bdi></span>
+              <span className="cv-item-meta">
+                <bdi dir="ltr">{t.exp1_meta}</bdi>
+              </span>
             </div>
             <ul>
               <li>{t.exp1_b1}</li>
@@ -632,11 +660,14 @@ export default function ResumePage() {
           <div className="cv-item">
             <div className="cv-item-head">
               <div>
-                <span className="cv-item-title">{t.exp2_title}</span>{' '}
-                &middot;{' '}
-                <span className="cv-item-sub"><bdi dir="ltr">{t.exp2_sub}</bdi></span>
+                <span className="cv-item-title">{t.exp2_title}</span> &middot;{' '}
+                <span className="cv-item-sub">
+                  <bdi dir="ltr">{t.exp2_sub}</bdi>
+                </span>
               </div>
-              <span className="cv-item-meta"><bdi dir="ltr">{t.exp2_meta}</bdi></span>
+              <span className="cv-item-meta">
+                <bdi dir="ltr">{t.exp2_meta}</bdi>
+              </span>
             </div>
             <ul>
               <li>{t.exp2_b1}</li>
@@ -648,11 +679,14 @@ export default function ResumePage() {
           <div className="cv-item">
             <div className="cv-item-head">
               <div>
-                <span className="cv-item-title">{t.exp3_title}</span>{' '}
-                &middot;{' '}
-                <span className="cv-item-sub"><bdi dir="ltr">{t.exp3_sub}</bdi></span>
+                <span className="cv-item-title">{t.exp3_title}</span> &middot;{' '}
+                <span className="cv-item-sub">
+                  <bdi dir="ltr">{t.exp3_sub}</bdi>
+                </span>
               </div>
-              <span className="cv-item-meta"><bdi dir="ltr">{t.exp3_meta}</bdi></span>
+              <span className="cv-item-meta">
+                <bdi dir="ltr">{t.exp3_meta}</bdi>
+              </span>
             </div>
             <ul>
               <li>{t.exp3_b1}</li>
@@ -667,11 +701,12 @@ export default function ResumePage() {
           <div className="cv-item">
             <div className="cv-item-head">
               <div>
-                <span className="cv-item-title">{t.edu1_title}</span>{' '}
-                &middot;{' '}
+                <span className="cv-item-title">{t.edu1_title}</span> &middot;{' '}
                 <span className="cv-item-sub">{t.edu1_sub}</span>
               </div>
-              <span className="cv-item-meta"><bdi dir="ltr">{t.edu1_meta}</bdi></span>
+              <span className="cv-item-meta">
+                <bdi dir="ltr">{t.edu1_meta}</bdi>
+              </span>
             </div>
             <ul>
               <li>{t.edu1_b1}</li>
