@@ -12,9 +12,9 @@ import {
 } from './data/portfolioData';
 
 const GH_USER = 'yahyaalfaruq';
-const GH_CACHE_KEY = `gh_repos_next_v5_${GH_USER}`;
+const GH_CACHE_KEY = `gh_repos_next_v6_${GH_USER}`;
 const GH_CACHE_TTL = 1000 * 60 * 30;
-const INITIAL_VISIBLE = 6;
+const INITIAL_VISIBLE = 9;
 
 interface GhProfile {
   login: string;
@@ -308,21 +308,27 @@ export default function PortfolioPage() {
         followers: uJson.followers,
       };
 
+      const flagshipNames = new Set(
+        FLAGSHIP_PROJECTS.map((f) => f.name.toLowerCase())
+      );
+
       const cleaned: RepoItem[] = rJson
         .filter(
           (r: any) =>
             !r.archived &&
             r.name.toLowerCase() !== GH_USER.toLowerCase() &&
-            r.name.toLowerCase() !== 'my-porto'
+            r.name.toLowerCase() !== 'my-porto' &&
+            !flagshipNames.has(r.name.toLowerCase())
         )
         .map((r: any) => {
           const meta = REPO_META[r.name] || null;
           return {
             name: r.name,
+            title: meta?.title,
             full_name: r.full_name,
             html_url: r.html_url,
             description: r.description || (meta ? meta.desc : ''),
-            homepage: r.homepage,
+            homepage: meta?.homepage || r.homepage,
             language: r.language,
             topics:
               Array.isArray(r.topics) && r.topics.length
@@ -336,6 +342,7 @@ export default function PortfolioPage() {
             forks: r.forks_count || 0,
             pushed_at: r.pushed_at,
             created_at: r.created_at,
+            teamwork: meta?.teamwork,
           };
         })
         .sort((a: RepoItem, b: RepoItem) => {
@@ -748,7 +755,7 @@ export default function PortfolioPage() {
                 <span className="skill-tag">Vercel</span>
                 <span className="skill-tag">Figma</span>
                 <span className="skill-tag">Laragon / Linux CLI</span>
-                <span className="skill-tag">Arabic (Mumtaz)</span>
+                <span className="skill-tag">Arabic (Darul Lughah)</span>
                 <span className="skill-tag">English (Pare-Dise)</span>
               </div>
             </div>
@@ -780,10 +787,11 @@ export default function PortfolioPage() {
                 </div>
                 <p>{dict.exp1_p}</p>
                 <div className="timeline-tags">
+                  <span>Teamwork</span>
+                  <span>Magang &amp; TA</span>
                   <span>Laravel 12</span>
                   <span>React 19</span>
                   <span>Supabase</span>
-                  <span>Tailwind CSS</span>
                   <span>DomPDF</span>
                 </div>
               </div>
@@ -840,7 +848,7 @@ export default function PortfolioPage() {
             <h3 className="edu-title">
               <span>{dict.edu_tit}</span>
             </h3>
-            <div className="edu-grid">
+            <div className="edu-grid" style={{ marginBottom: '36px' }}>
               <div className="edu-card">
                 <div className="edu-icon">
                   <i className="fas fa-graduation-cap"></i>
@@ -852,6 +860,33 @@ export default function PortfolioPage() {
                 </div>
               </div>
 
+              <div className="edu-card">
+                <div className="edu-icon">
+                  <i className="fas fa-school"></i>
+                </div>
+                <div className="edu-info">
+                  <h4>{dict.edu_smp_t}</h4>
+                  <span>{dict.edu_smp_s}</span>
+                  <p>{dict.edu_smp_d}</p>
+                </div>
+              </div>
+
+              <div className="edu-card">
+                <div className="edu-icon">
+                  <i className="fas fa-book-open"></i>
+                </div>
+                <div className="edu-info">
+                  <h4>{dict.edu_sd_t}</h4>
+                  <span>{dict.edu_sd_s}</span>
+                  <p>{dict.edu_sd_d}</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 className="edu-title">
+              <span>{dict.edu_cert_tit}</span>
+            </h3>
+            <div className="edu-grid">
               <div className="edu-card">
                 <div className="edu-icon">
                   <i className="fas fa-code"></i>
@@ -1138,23 +1173,45 @@ export default function PortfolioPage() {
                       </div>
                       <h3 className="project-title">
                         <a
-                          href={r.html_url}
+                          href={live || r.html_url}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           {r.title || prettyRepoName(r.name)}
                         </a>
-                        {live && (
-                          <a
-                            href={live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="live-pill"
-                            title={dict.p_live}
-                          >
-                            <span className="live-dot"></span>Live
-                          </a>
-                        )}
+                        <span
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            flexWrap: 'wrap',
+                          }}
+                        >
+                          {r.teamwork && (
+                            <span
+                              className="live-pill"
+                              title={dict.p_team}
+                              style={{ opacity: 0.9 }}
+                            >
+                              <i
+                                className="fas fa-users"
+                                style={{ fontSize: '0.62rem' }}
+                              ></i>{' '}
+                              {dict.p_team}
+                            </span>
+                          )}
+                          {live && (
+                            <a
+                              href={live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="live-pill"
+                              title={dict.p_live}
+                            >
+                              <span className="live-dot"></span>Live
+                            </a>
+                          )}
+                        </span>
                       </h3>
                       <p className={r.description ? '' : 'is-muted'}>{desc}</p>
                       <div className="project-meta">
