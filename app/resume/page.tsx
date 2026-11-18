@@ -87,7 +87,7 @@ const CV_DATA: Record<Lang, CvDict> = {
     exp1_title:
       'SIAKAD Almahira (Internship & Final Project / Magang & TA · Teamwork)',
     exp1_sub:
-      'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase · siakad-almahir.wasmer.app',
+      'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase · siakad-almahir.wasmer.app · github.com/Ghifari-S/almahir',
     exp1_meta: 'PPQ IT Al Mahir · 2025 – 2026',
     exp1_b1:
       "Collaborated in a team for our Internship & Final Project (Magang & Tugas Akhir) to engineer the Assessment & Attendance module (PenilaianDanPresensi) of SIAKAD Almahira integrating 5 sub-modules: Real-Time Analytics Dashboard, Academic Grading, Tahfidz Al-Qur'an Tracking, Schedule-Based Attendance, and Student Leave/Sick Permits (IzinSakit).",
@@ -106,11 +106,11 @@ const CV_DATA: Record<Lang, CvDict> = {
     exp2_b3:
       'Student Master Registry (Buku Induk Siswa): Built a digital student registry platform connected to Supabase Cloud Database with multi-class filtering and one-click Excel (.xlsx) import/export using SheetJS.',
     exp3_title:
-      'Independent Web Apps: POS Coffee Shop, Sawa Al-Um, Dompet Santri & Tugazku PWA',
+      'Independent Web Apps: POS Coffee Shop, Dompet Santri & Tugazku PWA',
     exp3_sub: 'React.js, TypeScript, IndexedDB, Service Worker, Node.js, Express.js',
     exp3_meta: '2023 – 2026',
     exp3_b1:
-      'Developed and deployed POS Coffee Shop (pos-coffe-shop.vercel.app), Web Kasir POS (web-kasir-pi.vercel.app), Sawa Al-Um (sawa-al-um.vercel.app), and Dompet Santri (dompets-santri.vercel.app) on Vercel.',
+      'Developed and deployed POS Coffee Shop (pos-coffe-shop.vercel.app), Web Kasir POS (web-kasir-pi.vercel.app), and Dompet Santri (dompets-santri.vercel.app) on Vercel.',
     exp3_b2:
       "Created Tugazku offline-first Progressive Web App (tugazku.vercel.app) using IndexedDB & Service Workers, RESTful Qur'an API, PSB/PPDB admission apps, Zakat Mal Calculator, and Mahir Wisata.",
     edu_title: 'Education History',
@@ -160,7 +160,7 @@ const CV_DATA: Record<Lang, CvDict> = {
     exp_title: 'Proyek Unggulan, Magang & Tugas Akhir (TA)',
     exp1_title: 'SIAKAD Almahira (Magang & Tugas Akhir / TA · Teamwork)',
     exp1_sub:
-      'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase · siakad-almahir.wasmer.app',
+      'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase · siakad-almahir.wasmer.app · github.com/Ghifari-S/almahir',
     exp1_meta: 'PPQ IT Al Mahir · 2025 – 2026',
     exp1_b1:
       "Bekerja secara tim dalam program Magang & Tugas Akhir (TA) merancang modul inti (PenilaianDanPresensi) SIAKAD Almahira yang mengintegrasikan 5 sub-modul: Dashboard Statistik Real-Time, Penilaian Akademik Guru, Rekap Tahfidz Al-Qur'an, Presensi Terintegrasi Jadwal, dan Pengajuan Izin/Sakit Siswa (IzinSakit).",
@@ -179,11 +179,11 @@ const CV_DATA: Record<Lang, CvDict> = {
     exp2_b3:
       'Sistem Buku Induk Siswa: Mengembangkan platform pendataan siswa terhubung ke Cloud Database Supabase dengan filter multi-kelas dan ekspor/impor spreadsheet Excel (.xlsx) menggunakan SheetJS.',
     exp3_title:
-      'Aplikasi Web Mandiri: POS Coffee Shop, Sawa Al-Um, Dompet Santri & Tugazku PWA',
+      'Aplikasi Web Mandiri: POS Coffee Shop, Dompet Santri & Tugazku PWA',
     exp3_sub: 'React.js, TypeScript, IndexedDB, Service Worker, Node.js, Express.js',
     exp3_meta: '2023 – 2026',
     exp3_b1:
-      'Membangun dan mempublikasikan POS Coffee Shop (pos-coffe-shop.vercel.app), Web Kasir POS (web-kasir-pi.vercel.app), Sawa Al-Um (sawa-al-um.vercel.app), dan Dompet Santri (dompets-santri.vercel.app) di Vercel.',
+      'Membangun dan mempublikasikan POS Coffee Shop (pos-coffe-shop.vercel.app), Web Kasir POS (web-kasir-pi.vercel.app), dan Dompet Santri (dompets-santri.vercel.app) di Vercel.',
     exp3_b2:
       "Membangun aplikasi Tugazku PWA Offline-First (tugazku.vercel.app) berbasis IndexedDB & Service Worker, REST API Al-Qur'an, sistem PSB/PPDB Santri, Kalkulator Zakat Mal, dan Mahir Wisata.",
     edu_title: 'Riwayat Pendidikan',
@@ -234,7 +234,7 @@ const CV_DATA: Record<Lang, CvDict> = {
     exp1_title:
       'نظام SIAKAD Almahira (التدريب العملي ومشروع التخرج · عمل جماعي)',
     exp1_sub:
-      'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase · siakad-almahir.wasmer.app',
+      'Laravel 12, Tailwind CSS 4, Alpine.js, DomPDF, Supabase · siakad-almahir.wasmer.app · github.com/Ghifari-S/almahir',
     exp1_meta: 'معهد الماهر PPQITA · ٢٠٢٥ – ٢٠٢٦',
     exp1_b1:
       'العمل ضمن فريق التدريب ومشروع التخرج لهندسة الوحدة الأساسية (PenilaianDanPresensi) التي تدمج 5 وحدات فرعية: لوحة إحصاءات فورية، ورصد درجات الطلاب، ومتابعة إنجاز تحفيظ القرآن، والحضور المرتبط بالجدول الدراسي، وتصاريح الإجازات المرضية (IzinSakit).',
@@ -253,11 +253,11 @@ const CV_DATA: Record<Lang, CvDict> = {
     exp2_b3:
       'نظام سجل الطلاب العام (Buku Induk): تطوير منصة سجل الطلاب المتصلة بقاعدة بيانات Supabase مع تصنيف الفصول وتصدير واستيراد جداول Excel (.xlsx) عبر SheetJS.',
     exp3_title:
-      'المشاريع المستقلة: POS Coffee Shop، وSawa Al-Um، وDompet Santri، وTugazku PWA',
+      'المشاريع المستقلة: POS Coffee Shop، وDompet Santri، وTugazku PWA',
     exp3_sub: 'React.js, TypeScript, IndexedDB, Service Worker, Node.js, Express.js',
     exp3_meta: '٢٠٢٣ – ٢٠٢٦',
     exp3_b1:
-      'تطوير ونشر تطبيقات POS Coffee Shop (pos-coffe-shop.vercel.app)، وWeb Kasir POS، وSawa Al-Um (sawa-al-um.vercel.app)، وDompet Santri (dompets-santri.vercel.app) على منصة Vercel.',
+      'تطوير ونشر تطبيقات POS Coffee Shop (pos-coffe-shop.vercel.app)، وWeb Kasir POS، وDompet Santri (dompets-santri.vercel.app) على منصة Vercel.',
     exp3_b2:
       'بناء تطبيق Tugazku PWA الذي يعمل دون اتصال بالإنترنت باستخدام IndexedDB، وواجهة برمجة تطبيقات القرآن الكريم بـ TypeScript، وحاسبة زكاة المال، وموقع Mahir Wisata.',
     edu_title: 'المسيرة التعليمية',

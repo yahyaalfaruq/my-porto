@@ -12,7 +12,7 @@ import {
 } from './data/portfolioData';
 
 const GH_USER = 'yahyaalfaruq';
-const GH_CACHE_KEY = `gh_repos_next_v6_${GH_USER}`;
+const GH_CACHE_KEY = `gh_repos_next_v7_${GH_USER}`;
 const GH_CACHE_TTL = 1000 * 60 * 30;
 const INITIAL_VISIBLE = 9;
 
@@ -318,6 +318,7 @@ export default function PortfolioPage() {
             !r.archived &&
             r.name.toLowerCase() !== GH_USER.toLowerCase() &&
             r.name.toLowerCase() !== 'my-porto' &&
+            r.name.toLowerCase() !== 'sawa-al-um' &&
             !flagshipNames.has(r.name.toLowerCase())
         )
         .map((r: any) => {
