@@ -290,18 +290,23 @@ const CV_DATA: Record<Lang, CvDict> = {
 };
 
 export default function ResumePage() {
-  const [lang, setLang] = useState<Lang>('en');
+  const [lang, setLang] = useState<Lang>('id');
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const queryLang = params.get('lang') as Lang | null;
     const saved = localStorage.getItem('lang') as Lang | null;
-    if (saved && CV_DATA[saved]) {
-      setLang(saved);
-      document.documentElement.lang = saved;
-      document.documentElement.dir = saved === 'ar' ? 'rtl' : 'ltr';
-    } else {
-      document.documentElement.lang = 'en';
-      document.documentElement.dir = 'ltr';
-    }
+    const initial: Lang =
+      queryLang && CV_DATA[queryLang]
+        ? queryLang
+        : saved && CV_DATA[saved]
+        ? saved
+        : 'id';
+
+    setLang(initial);
+    localStorage.setItem('lang', initial);
+    document.documentElement.lang = initial;
+    document.documentElement.dir = initial === 'ar' ? 'rtl' : 'ltr';
   }, []);
 
   const handleLangChange = (newLang: Lang) => {
@@ -526,7 +531,7 @@ export default function ResumePage() {
 
       {/* Toolbar */}
       <div className="cv-toolbar">
-        <Link href="/" className="cv-btn">
+        <Link href={`/?lang=${lang}`} className="cv-btn">
           <i className={`fas ${isRtl ? 'fa-arrow-right' : 'fa-arrow-left'}`}></i>{' '}
           {t.back}
         </Link>
@@ -554,7 +559,11 @@ export default function ResumePage() {
               العربية
             </button>
           </div>
-          <a href="/assets/resume.pdf" download className="cv-btn">
+          <a
+            href={`/assets/resume-${lang}.pdf`}
+            download={`CV-Yahya-Al-Faruq-${lang.toUpperCase()}.pdf`}
+            className="cv-btn"
+          >
             <i className="fas fa-download"></i> {t.download}
           </a>
           <button

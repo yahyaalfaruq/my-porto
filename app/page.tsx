@@ -75,32 +75,44 @@ export default function PortfolioPage() {
 
   const dict = T[lang] || T.en;
 
-  // Initialize saved theme & language
+  // Initialize saved theme & language without overwriting localStorage on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      setLightMode(true);
-      document.body.classList.add('light-mode');
-    }
+    const isLight = savedTheme === 'light';
+    setLightMode(isLight);
+    document.body.classList.toggle('light-mode', isLight);
+
+    const params = new URLSearchParams(window.location.search);
+    const queryLang = params.get('lang') as LangCode | null;
     const savedLang = localStorage.getItem('lang') as LangCode | null;
-    if (savedLang && T[savedLang]) {
-      setLang(savedLang);
-      document.documentElement.lang = savedLang;
-      document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
-    }
+    const initialLang: LangCode =
+      queryLang && T[queryLang]
+        ? queryLang
+        : savedLang && T[savedLang]
+        ? savedLang
+        : 'id';
+
+    setLang(initialLang);
+    localStorage.setItem('lang', initialLang);
+    document.documentElement.lang = initialLang;
+    document.documentElement.dir = initialLang === 'ar' ? 'rtl' : 'ltr';
   }, []);
 
-  // Sync theme & language to DOM
-  useEffect(() => {
-    document.body.classList.toggle('light-mode', lightMode);
-    localStorage.setItem('theme', lightMode ? 'light' : 'dark');
-  }, [lightMode]);
+  const handleLangSelect = (newLang: LangCode) => {
+    setLang(newLang);
+    localStorage.setItem('lang', newLang);
+    document.documentElement.lang = newLang;
+    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+  };
 
-  useEffect(() => {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    localStorage.setItem('lang', lang);
-  }, [lang]);
+  const handleThemeToggle = () => {
+    setLightMode((prev) => {
+      const next = !prev;
+      document.body.classList.toggle('light-mode', next);
+      localStorage.setItem('theme', next ? 'light' : 'dark');
+      return next;
+    });
+  };
 
   // Typewriter loop
   useEffect(() => {
@@ -514,7 +526,7 @@ export default function PortfolioPage() {
                       }`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setLang(opt.code);
+                        handleLangSelect(opt.code);
                         setLangMenuOpen(false);
                       }}
                     >
@@ -529,12 +541,16 @@ export default function PortfolioPage() {
                 type="button"
                 className="theme-toggle"
                 title="Toggle theme"
-                onClick={() => setLightMode((v) => !v)}
+                onClick={handleThemeToggle}
               >
                 <i className={`fas ${lightMode ? 'fa-moon' : 'fa-sun'}`}></i>
               </button>
 
-              <Link href="/resume" className="btn btn-outline" id="resumeBtn">
+              <Link
+                href={`/resume?lang=${lang}`}
+                className="btn btn-outline"
+                id="resumeBtn"
+              >
                 <i className="fas fa-file-lines"></i>{' '}
                 <span>{dict.nav_resume}</span>
               </Link>
@@ -676,14 +692,14 @@ export default function PortfolioPage() {
               </div>
               <div className="about-actions">
                 <a
-                  href="/assets/resume.pdf"
+                  href={`/assets/resume-${lang}.pdf`}
                   className="btn btn-primary"
-                  download
+                  download={`CV-Yahya-Al-Faruq-${lang.toUpperCase()}.pdf`}
                 >
                   <i className="fas fa-download"></i>{' '}
                   <span>{dict.about_btn}</span>
                 </a>
-                <Link href="/resume" className="btn btn-outline">
+                <Link href={`/resume?lang=${lang}`} className="btn btn-outline">
                   <i className="fas fa-arrow-up-right-from-square"></i>{' '}
                   <span>{dict.about_view_cv}</span>
                 </Link>
@@ -1384,7 +1400,7 @@ export default function PortfolioPage() {
                   <i className="fab fa-whatsapp"></i>
                 </a>
                 <Link
-                  href="/resume"
+                  href={`/resume?lang=${lang}`}
                   className="social-btn"
                   aria-label="Resume"
                 >
