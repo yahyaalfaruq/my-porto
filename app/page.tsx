@@ -149,7 +149,6 @@ export default function PortfolioPage() {
         'skills',
         'experience',
         'projects',
-        'testimonials',
         'contact',
       ];
       let current = 'home';
@@ -466,7 +465,6 @@ export default function PortfolioPage() {
                 { id: 'skills', label: dict.nav_skills },
                 { id: 'experience', label: dict.nav_exp },
                 { id: 'projects', label: dict.nav_proj },
-                { id: 'testimonials', label: dict.nav_rev },
                 { id: 'contact', label: dict.nav_con },
               ].map((item) => (
                 <li key={item.id}>
@@ -1255,63 +1253,65 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Collaboration Notes */}
-      <section id="testimonials" className="testimonials">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">{dict.testi_tag}</span>
-            <h2>{dict.testi_h2}</h2>
-            <p>{dict.testi_sub}</p>
-          </div>
+      {/* Collaboration Notes (temporarily disabled) */}
+      {false && (
+        <section id="testimonials" className="testimonials">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-tag">{dict.testi_tag}</span>
+              <h2>{dict.testi_h2}</h2>
+              <p>{dict.testi_sub}</p>
+            </div>
 
-          <div className="testimonial-grid">
-            {[
-              {
-                badge: dict.t1_b,
-                quote: dict.t1_p,
-                name: dict.t1_n,
-                role: dict.t1_r,
-                idx: '01',
-              },
-              {
-                badge: dict.t2_b,
-                quote: dict.t2_p,
-                name: dict.t2_n,
-                role: dict.t2_r,
-                idx: '02',
-              },
-              {
-                badge: dict.t3_b,
-                quote: dict.t3_p,
-                name: dict.t3_n,
-                role: dict.t3_r,
-                idx: '03',
-              },
-              {
-                badge: dict.t4_b,
-                quote: dict.t4_p,
-                name: dict.t4_n,
-                role: dict.t4_r,
-                idx: '04',
-              },
-            ].map((rev) => (
-              <div className="testimonial-card" key={rev.idx}>
-                <div className="testimonial-top">
-                  <span className="testimonial-index">{rev.idx}</span>
-                  <span className="testimonial-badge">{rev.badge}</span>
-                </div>
-                <p>{rev.quote}</p>
-                <div className="testimonial-author">
-                  <div>
-                    <strong>{rev.name}</strong>
-                    <span>{rev.role}</span>
+            <div className="testimonial-grid">
+              {[
+                {
+                  badge: dict.t1_b,
+                  quote: dict.t1_p,
+                  name: dict.t1_n,
+                  role: dict.t1_r,
+                  idx: '01',
+                },
+                {
+                  badge: dict.t2_b,
+                  quote: dict.t2_p,
+                  name: dict.t2_n,
+                  role: dict.t2_r,
+                  idx: '02',
+                },
+                {
+                  badge: dict.t3_b,
+                  quote: dict.t3_p,
+                  name: dict.t3_n,
+                  role: dict.t3_r,
+                  idx: '03',
+                },
+                {
+                  badge: dict.t4_b,
+                  quote: dict.t4_p,
+                  name: dict.t4_n,
+                  role: dict.t4_r,
+                  idx: '04',
+                },
+              ].map((rev) => (
+                <div className="testimonial-card" key={rev.idx}>
+                  <div className="testimonial-top">
+                    <span className="testimonial-index">{rev.idx}</span>
+                    <span className="testimonial-badge">{rev.badge}</span>
+                  </div>
+                  <p>{rev.quote}</p>
+                  <div className="testimonial-author">
+                    <div>
+                      <strong>{rev.name}</strong>
+                      <span>{rev.role}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Contact */}
       <section id="contact" className="contact">

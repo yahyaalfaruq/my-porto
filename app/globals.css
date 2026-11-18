@@ -737,7 +737,7 @@ nav { display:flex; align-items:center; justify-content:space-between; padding:1
 /* ============================
    CONTACT
    ============================ */
-.contact { background:var(--bg-primary); }
+.contact { background:var(--bg-secondary); border-top:1px solid var(--border); }
 .contact-content { display:grid; grid-template-columns:1fr 1.5fr; gap:56px; align-items:start; }
 .contact-info { display:flex; flex-direction:column; gap:20px; }
 .contact-item { display:flex; align-items:center; gap:15px; }
